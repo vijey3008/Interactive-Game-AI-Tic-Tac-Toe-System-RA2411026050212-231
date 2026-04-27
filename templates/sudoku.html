@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku CSP Solver</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav><a href="/">← Home</a></nav>
+  <main class="page">
+    <section class="card">
+      <h1>Sudoku Solver using CSP</h1>
+      <p>Fill the grid manually, check your answer, or let the CSP backtracking solver complete it.</p>
+      <div id="sudoku" class="sudoku-board"></div>
+      <div class="actions">
+        <button onclick="checkSudoku()">Check Solution</button>
+        <button onclick="solveSudoku()">Solve using CSP</button>
+        <button class="secondary-button" onclick="resetSudoku()">Reset</button>
+      </div>
+      <h2 id="message"></h2>
+    </section>
+  </main>
+  <script>
+    const initialPuzzle = {{ puzzle | tojson }};
+  </script>
+  <script src="{{ url_for('static', filename='js/sudoku.js') }}"></script>
+</body>
+</html>
